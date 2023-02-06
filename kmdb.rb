@@ -276,13 +276,14 @@ Role.destroy_all
     all_characters = Character.all
 
     for character in all_characters
-       # full_name2 = all_actors["full"]
 
-        actorname = Actor.where({"id" => character["actor_id"]})
-        
-        actor_full_name = actorname["full_name"]
-        puts "#{actor_full_name}"
-        puts
+        for actor in all_actors
+
+        actor = Actor.where({"id" => character["actor_id"]})
+        fullname = actor["full_name"]
+       
+     
+        end 
     end 
 # Prints a header for the movies output
 puts "Movies"
