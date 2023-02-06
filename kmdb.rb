@@ -210,38 +210,68 @@ Role.destroy_all
     alfred2.save
 
     rag = Character.new
+    rag["char_name"] = "Ra's Al Ghul"
+    rag["movie_id"] = bb_id["id"]
+    rag["actor_id"] = lneeson["id"]
+    rag.save
 
 
     rachel_dawes = Character.new
+    rachel_dawes["char_name"] = "Rachel Dawes"
+    rachel_dawes["movie_id"] = bb_id["id"]
+    rachel_dawes["actor_id"] = kholmes["id"]
+    rachel_dawes.save
 
+    gordon1 = Character.new
+    gordon1["char_name"] = "Commissioner Gordon"
+    gordon1["movie_id"] = bb_id["id"]
+    gordon1["actor_id"] = mcaine_id["id"]
+    gordon1.save
 
-    gordon = Character.new
+    gordon2 = Character.new
+    gordon2["char_name"] = "Commissioner Gordon"
+    gordon2["movie_id"] = dk_id["id"]
+    gordon2["actor_id"] = mcaine_id["id"]
+    gordon2.save
+
+    gordon3 = Character.new
+    gordon3["char_name"] = "Commissioner Gordon"
+    gordon3["movie_id"] = dkr_id["id"]
+    gordon3["actor_id"] = mcaine_id["id"]
+    gordon3.save
 
 
     joker = Character.new
-
+    joker["char_name"] = "Joker"
+    joker["movie_id"] = dk_id["id"]
+    joker["actor_id"] = hledger["id"]
+    joker.save
 
     harvey_dent = Character.new
-
+    harvey_dent["char_name"] = "Harvey Dent"
+    harvey_dent["movie_id"] = dk_id["id"]
+    harvey_dent["actor_id"] = aeckhart["id"]
+    harvey_dent.save
 
     bane = Character.new
-
+    bane["char_name"] = "Bane"
+    bane["movie_id"] = dkr_id["id"]
+    bane["actor_id"] = thardy["id"]
+    bane.save
 
     john_blake = Character.new
-
+    john_blake["char_name"] = "John Blake"
+    john_blake["movie_id"] = dkr_id["id"]
+    john_blake["actor_id"] = jgordon["id"]
+    john_blake.save
 
     selina_kyle = Character.new
+    selina_kyle["char_name"] = "Selina Kyle"
+    selina_kyle["movie_id"] = dkr_id["id"]
+    selina_kyle["actor_id"] = ahathaway["id"]
+    selina_kyle.save
 
-
-
-Commissioner Gordon
-Bane
-John Blake
-Selina Kyle
     
-    
-
-
 
 
 
