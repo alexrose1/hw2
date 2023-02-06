@@ -171,6 +171,7 @@ Role.destroy_all
     bb_id = Movie.find_by("title" => "Batman Begins")
     dk_id = Movie.find_by("title" => "The Dark Knight")
     dkr_id = Movie.find_by("title" => "The Dark Knight Rises")
+    
 
     cbale_id = Actor.find_by("full_name" => "Christian Bale")
     mcaine = Actor.find_by("full_name" => "Michael Caine")
@@ -197,6 +198,12 @@ Role.destroy_all
         bruce_wayne2["actor_id"] = cbale_id["id"]
         bruce_wayne2.save
 
+        bruce_wayne3 = Character.new
+        bruce_wayne3["char_name"] = "Bruce Wayne"
+        bruce_wayne3["movie_id"] = dkr_id["id"]
+        bruce_wayne3["actor_id"] = cbale_id["id"]
+        bruce_wayne3.save
+
         alfred1 = Character.new
         alfred1["char_name"] = "Alfred"
         alfred1["movie_id"] = bb_id["id"]
@@ -205,7 +212,7 @@ Role.destroy_all
 
         alfred2 = Character.new
         alfred2["char_name"] = "Alfred"
-        alfred2["movie_id"] = bb_id["id"]
+        alfred2["movie_id"] = dk_id["id"]
         alfred2["actor_id"] = mcaine["id"]
         alfred2.save
 
@@ -272,26 +279,23 @@ Role.destroy_all
         selina_kyle.save
 
 
-    all_actors = Actor.all
-    all_characters = Character.all
+ 
 
-    for character in all_characters
-
-        for actor in all_actors
-
-        actor = Actor.where({"id" => character["actor_id"]})
-        fullname = actor["full_name"]
-       
-     
-        end 
-    end 
 # Prints a header for the movies output
+
+
+# Query the movies data and loop through the results to display the movies output.
+# TODO!
 puts "Movies"
 puts "======"
 puts ""
 
-# Query the movies data and loop through the results to display the movies output.
-# TODO!
+all_movies = Movie.all
+for movie in all_movies
+    
+    puts "#{movie["title"]}     #{movie["year_released"]}     #{movie["rated"]}     #{new_studio["name"]}"
+end 
+
 
 # Prints a header for the cast output
 puts ""
@@ -299,5 +303,23 @@ puts "Top Cast"
 puts "========"
 puts ""
 
+
 # Query the cast data and loop through the results to display the cast output for each movie.
 # TODO!
+all_actors = Actor.all
+
+
+for movie in all_movies 
+
+
+    rosters = Character.where({"movie_id" => movie["id"]})
+
+        for roster in rosters
+            fullnames = Actor.find_by({"id" => roster["actor_id"]})
+            movienames = Movie.find_by({"id" => roster["movie_id"]})
+
+            puts "#{movienames["title"]}     #{roster["char_name"]}     #{fullnames["full_name"]}"
+        
+        
+            end 
+    end
